@@ -1,7 +1,15 @@
 const nombre = "leandro";
 const apellido = "Morillo";
 
-sessionStorage.setItem("nombre", "apellido")
-localStorage.setItem("persona", JSON.stringify({ nombre, apellido }));
+const names = {
+  nombre,
+  apellido,
+};
 
-document.cookie = "nombreCaducar=nombre; expires=" + new Date(2023,0,1).toUTCString();
+sessionStorage.setItem("names", JSON.stringify(names));
+localStorage.setItem("names", JSON.stringify(names));
+
+const now = new Date();
+document.cookie = `datos=${JSON.stringify(datos)};expires=${new Date(
+  now.getTime() + 2 * 60000
+)}`;
